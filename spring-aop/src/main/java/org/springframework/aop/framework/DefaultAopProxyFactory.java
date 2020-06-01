@@ -48,6 +48,8 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 
 	@Override
 	public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException {
+		//是否配置优化，proxyTargetClass是否为true,
+		//hasNoUserSuppliedProxyInterfaces(config)就是在判断代理的对象是否有实现接口，有实现接口的话直接走new JdkDynamicAopProxy(config)分支
 		if (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
 			Class<?> targetClass = config.getTargetClass();
 			if (targetClass == null) {

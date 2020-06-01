@@ -15,6 +15,9 @@
 		<property name="interfaces"><value>org.springframework.tests.sample.beans.ITestBean</value></property>
 		<property name="target"><ref bean="test"/></property>
 		<property name="interceptorNames"><value>debugInterceptor</value></property>
+		<property name="singleton">
+			<value>false</value>
+		</property>
 	</bean>
 
 	<!--

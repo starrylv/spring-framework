@@ -33,6 +33,12 @@ import static org.junit.Assert.*;
 public class DefaultNamespaceHandlerResolverTests {
 
 	@Test
+	public void initResolverHandler(){
+		new DefaultNamespaceHandlerResolver(null,DefaultNamespaceHandlerResolver.DEFAULT_HANDLER_MAPPINGS_LOCATION);
+	}
+
+
+	@Test
 	public void testResolvedMappedHandler() {
 		DefaultNamespaceHandlerResolver resolver = new DefaultNamespaceHandlerResolver(getClass().getClassLoader());
 		NamespaceHandler handler = resolver.resolve("http://www.springframework.org/schema/util");

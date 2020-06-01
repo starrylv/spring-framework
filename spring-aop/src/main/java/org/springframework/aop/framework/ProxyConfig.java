@@ -33,15 +33,26 @@ public class ProxyConfig implements Serializable {
 	/** use serialVersionUID from Spring 1.2 for interoperability. */
 	private static final long serialVersionUID = -8409359707199703185L;
 
-
+	/**
+	 * 这个属性为true时，目标类本身被代理而不是目标类的接口。如果这个属性值被设为true，CGLIB代理将被创建
+	 */
 	private boolean proxyTargetClass = false;
 
+	/**
+	 * 用来控制通过CGLIB创建的代理是否使用激进的优化策略
+	 */
 	private boolean optimize = false;
 
 	boolean opaque = false;
 
+	/**
+	 * 决定当前代理是否被暴露在一个ThreadLocal 中以便被目标对象访问。如果目标对象需要获取代理而且exposeProxy属性被设为 true，目标对象可以使用AopContext.currentProxy()方法。
+	 */
 	boolean exposeProxy = false;
 
+	/**
+	 * 如果一个代理配置是frozen的，就不允许对该配置进行修改
+	 */
 	private boolean frozen = false;
 
 

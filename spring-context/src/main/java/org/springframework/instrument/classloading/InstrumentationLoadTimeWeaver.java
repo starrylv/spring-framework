@@ -23,7 +23,7 @@ import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.instrument.InstrumentationSavingAgent;
+//import org.springframework.instrument.InstrumentationSavingAgent;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
@@ -157,7 +157,9 @@ public class InstrumentationLoadTimeWeaver implements LoadTimeWeaver {
 	private static class InstrumentationAccessor {
 
 		public static Instrumentation getInstrumentation() {
-			return InstrumentationSavingAgent.getInstrumentation();
+//			return InstrumentationSavingAgent.getInstrumentation();
+			//测试
+			return null;
 		}
 	}
 

@@ -46,6 +46,7 @@ import org.springframework.util.CollectionUtils;
  * @since 2.0
  * @see NamespaceHandler
  * @see DefaultBeanDefinitionDocumentReader
+ * 默认的命名空间解析器
  */
 public class DefaultNamespaceHandlerResolver implements NamespaceHandlerResolver {
 
@@ -109,7 +110,7 @@ public class DefaultNamespaceHandlerResolver implements NamespaceHandlerResolver
 	/**
 	 * Locate the {@link NamespaceHandler} for the supplied namespace URI
 	 * from the configured mappings.
-	 * @param namespaceUri the relevant namespace URI
+	 * @param namespaceUri the relevant namespace URI 命名空间标识
 	 * @return the located {@link NamespaceHandler}, or {@code null} if none found
 	 */
 	@Override

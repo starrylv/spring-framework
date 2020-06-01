@@ -41,7 +41,7 @@ public interface SmartInstantiationAwareBeanPostProcessor extends InstantiationA
 	 * Predict the type of the bean to be eventually returned from this
 	 * processor's {@link #postProcessBeforeInstantiation} callback.
 	 * <p>The default implementation returns {@code null}.
-	 * @param beanClass the raw class of the bean
+	 * @param beanClass the raw class of the be  an
 	 * @param beanName the name of the bean
 	 * @return the type of the bean, or {@code null} if not predictable
 	 * @throws org.springframework.beans.BeansException in case of errors

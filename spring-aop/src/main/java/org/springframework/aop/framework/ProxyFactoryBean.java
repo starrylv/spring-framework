@@ -102,6 +102,9 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
+	/**
+	 * Advisor的字符串数组，可以包括拦截器或其它通知的名字。 顺序是很重要的，排在前面的将被优先服务。就是说列表里的第一个拦截器将能够第一个拦截调用。
+	 */
 	@Nullable
 	private String[] interceptorNames;
 
@@ -249,6 +252,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 	@Override
 	@Nullable
 	public Object getObject() throws BeansException {
+		//初始化通知器链
 		initializeAdvisorChain();
 		if (isSingleton()) {
 			return getSingletonInstance();

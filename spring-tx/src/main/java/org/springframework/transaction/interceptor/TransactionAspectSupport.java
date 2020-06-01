@@ -246,6 +246,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 		return this.beanFactory;
 	}
 
+
 	/**
 	 * Check that required properties were set.
 	 */
@@ -279,13 +280,16 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 			final InvocationCallback invocation) throws Throwable {
 
 		// If the transaction attribute is null, the method is non-transactional.
+		// 获取@Transactional注解的相关参数
 		TransactionAttributeSource tas = getTransactionAttributeSource();
 		final TransactionAttribute txAttr = (tas != null ? tas.getTransactionAttribute(method, targetClass) : null);
+		//获取TransactionManager
 		final PlatformTransactionManager tm = determineTransactionManager(txAttr);
 		final String joinpointIdentification = methodIdentification(method, targetClass, txAttr);
 
 		if (txAttr == null || !(tm instanceof CallbackPreferringPlatformTransactionManager)) {
 			// Standard transaction demarcation with getTransaction and commit/rollback calls.
+			// 获取TransactionInfo，包含了tm和TransactionStatus
 			TransactionInfo txInfo = createTransactionIfNecessary(tm, txAttr, joinpointIdentification);
 
 			Object retVal;
@@ -296,12 +300,15 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 			}
 			catch (Throwable ex) {
 				// target invocation exception
+				//回滚
 				completeTransactionAfterThrowing(txInfo, ex);
 				throw ex;
 			}
 			finally {
+				//清除线程信息
 				cleanupTransactionInfo(txInfo);
 			}
+			//提交事务
 			commitTransactionAfterReturning(txInfo);
 			return retVal;
 		}
