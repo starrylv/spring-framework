@@ -2,7 +2,7 @@ description = "Spring Core"
 
 dependencyManagement {
 	imports {
-		mavenBom "io.projectreactor:reactor-bom:${reactorVersion}"
+		mavenBom "io.projectreactor:reactor-bom:3.3.0.RELEASE"
 		mavenBom "io.netty:netty-bom:${nettyVersion}"
 	}
 }
