@@ -6,6 +6,8 @@ buildscript {
 		maven {
 			url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
 		}
+        maven { url "http://repo.springsource.org/plugins-release" }
+
 	}
 	dependencies {
 		classpath("io.spring.gradle:propdeps-plugin:0.0.9.RELEASE")
@@ -43,7 +45,7 @@ ext {
 	kotlinVersion        = "1.2.71"
 	log4jVersion         = "2.11.2"
 	nettyVersion         = "4.1.39.Final"
-	reactorVersion       = "Californium-SR12"
+	reactorVersion       = "Californium-SR11"
 	rxjavaVersion        = "1.3.8"
 	rxjavaAdapterVersion = "1.2.1"
 	rxjava2Version       = "2.2.12"
@@ -153,7 +155,9 @@ configure(allprojects) { project ->
 
 	repositories {
 		maven { url "https://repo.spring.io/libs-release" }
-		mavenLocal()
+        maven { url "http://repo.springsource.org/plugins-release" }
+
+        mavenLocal()
 	}
 
 	dependencies {
@@ -262,7 +266,7 @@ configure(rootProject) {
 
 	dependencyManagement {
 		imports {
-			mavenBom "io.projectreactor:reactor-bom:${reactorVersion}"
+			mavenBom "io.projectreactor:reactor-bom:Aluminium-RELEASE"
 		}
 	}
 
